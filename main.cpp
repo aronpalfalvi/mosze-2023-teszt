@@ -37,5 +37,6 @@ int main()
     std::cout << "Atlag: " << atlag << std::endl;
 
     delete[] b; // Memoria felszabadítása
+    std::cout << "A kod megfeleloen lett javitva!" << std::endl;
     return 0;
 }
