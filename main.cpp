@@ -4,31 +4,39 @@ constexpr int N_ELEMENTS = 100;
 
 int main()
 {
-    // Hibás név: NELEMENTS -> N_ELEMENTS
-    int* b = new int[N_ELEMENTS];
-    // Rossz idézõjel és hiányzó pontosvesszõ
+        // Bug: used undeclared NELEMENTS (should be N_ELEMENTS)
+    int *b = new int[N_ELEMENTS];
+
+    // Bug: wrong quote char and missing semicolon
     std::cout << "1-100 ertekek duplazasa" << std::endl;
-    // Hiányos ciklusfej
+
+    // Bug: incomplete loop header, initialize and compare correctly
     for (int i = 0; i < N_ELEMENTS; i++)
     {
         b[i] = i * 2;
     }
-    // Hibás feltétel (i) és hiányzó pontosvesszõ
+
+    // Bug: loop condition incorrect and missing output formatting
     for (int i = 0; i < N_ELEMENTS; i++)
     {
         std::cout << "Ertek: " << b[i] << std::endl;
-    }
+    }    
+
     std::cout << "Atlag szamitasa: " << std::endl;
-    // Nincs kezdõérték (0) adva
+
+    // Bug: atlag not initialized
     int atlag = 0;
-    // Vesszõ hiba a ciklusban és hiányzó pontosvesszõ a törzsben
+
+    // Bug: comma instead of semicolon in for, missing semicolon inside
     for (int i = 0; i < N_ELEMENTS; i++)
     {
         atlag += b[i];
     }
+
     atlag /= N_ELEMENTS;
     std::cout << "Atlag: " << atlag << std::endl;
 
-    delete[] b; // Memória felszabadítása
+    delete[] b; // Memoria felszabadÃ­tÃ¡sa
+    std::cout << "A kod megfeleloen lett javitva!" << std::endl;
     return 0;
 }
